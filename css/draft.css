@@ -1,0 +1,98 @@
+  
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif; 
+}
+body {
+    background: url("../assets/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 110vh;
+    /* background: rgba(39, 39, 39, 0.4); */
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.nav {
+    position: fixed;
+    top: 0;
+    display: flex;
+    align-items: center; /* Center items vertically */
+    justify-content: space-between; /* Ensure space between items */
+    width: 100%;
+    height: 100px;
+    padding: 0 20px; /* Add padding for better spacing */
+    background: linear-gradient(to bottom , #3c517c, #9ea5ae);
+    z-index: 100;
+}
+
+
+
+
+/*Add button*/
+button {
+    padding: 10px 20px;
+    background: rgb(153, 224, 255);;
+    color: #fff;
+    border: none;
+    border-radius: 100px;
+    width: 150px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #81fdff;
+}
+
+
+
+
+form {
+    margin-bottom: 20px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+
+
+@media only screen and (max-width: 800px) {
+    .nav h1 {
+        display: none;
+    }
+    .nav-logo img {
+        width: 100%;
+        height: 100%; /* Adjust height based on viewport */
+        max-width: 200px;
+        /* max-height: 15vh; */
+        min-height: 5vh;
+    }        
+    .login-container{
+        width: 90%;
+        height: 45%;
+    }
+    .signup-container {
+        width: 90%;
+        height: 69.5%;
+    }
+}
+
+

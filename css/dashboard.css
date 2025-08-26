@@ -1,0 +1,516 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins: 200,300,400,500,600,700,800,900&display=swap');
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    position: relative;
+    width: 100%;
+    /* background: url("../assets/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow-x: hidden; */
+}
+
+/* pop-out Reminder */
+.reminder {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 400px;
+    height: 400px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    border-radius: 10px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1.2s ease, transform 1.2s ease;
+    pointer-events: none;
+}
+
+.reminder.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.reminder .reminder-content{
+    display: flex;
+    padding: 5px;
+    flex-direction: column;
+    gap: 25px;
+    align-items: center;
+}
+
+.reminder .reminder-content p {
+    text-align: center;
+    font-size: 15px;
+}
+
+.close{
+    display: block;
+    text-align: right;
+    padding: 10px 20px 0 0;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+
+
+
+
+
+.header{
+    height: 60px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid #f1f1f1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header .logo-part {
+    display: flex;
+    align-items: center;
+}
+
+.logo-part .menu-icon{
+    margin-left: 20px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.logo-part .menu-icon img{
+    padding: 8px 8px;
+}
+
+.logo-part .menu-icon:hover{
+    background: #f1f1f1bd;
+    border-radius: 50%;
+}
+
+.header .logo-part a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 20px 10px;
+    text-decoration: none;
+}
+
+.header-right{
+    /* flex:1;
+    display: flex; */
+    align-items: right;
+    justify-content: space-between;
+    margin-right: 20px;
+}
+
+
+.profile {
+    position: relative;
+    cursor: pointer;
+}
+
+.profileAlign{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.profile-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: rgb(247, 247, 247);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    z-index: 1001;
+    min-width: 200px;
+    max-height: 80vh;
+    border-radius: 16px;
+}
+
+.profile-menu.active {
+    display: block;
+}
+
+.profile-menu a {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    text-decoration: none;
+    color: #3c517c;
+    gap: 10px;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.profile-menu a:hover {
+    background-color: #f1f1f1;
+}
+
+.profile-menu a i {
+    width: 20px;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+li {
+    list-style: none;
+}
+
+.container{
+    position: relative;
+    width: 100%;
+    min-height: calc(100vh - 60px);
+}
+
+.navigation{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100%;
+    transition: all 0.3s ease;
+}
+
+.navigation.active{
+    width: 80px;
+    overflow:hidden;
+}
+
+
+.navigation.active .title{
+    display: none;
+}
+
+.navigation.active .icon{
+    width: 100%;
+}
+
+.nav-menu{
+    height: 100%;
+    background-color: white;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    border-right: 2px solid #f1f1f1;
+}
+
+.nav-menu a{
+    transition: all 0.3s ease;
+    border-radius: 10px;
+}
+
+.nav-menu a:hover{
+    scale: 1.1;
+    background: #f1f1f1;
+}
+
+.active-link{
+    background: #f1f1f1;
+}
+
+.navigation ul li{
+    margin-top: 10px;
+}
+
+.navigation ul li a{
+    height: 60px;
+    display: flex;
+    text-decoration: none;
+    color: #3c517c; /*nav bar font color*/
+}
+.navigation ul li a .icon{
+    width: 40px;
+    height: 40px;
+    line-height: 60px;
+    text-align: center;
+}
+
+.navigation ul li a .title{
+    padding: 0 10px;
+    height: 60px;
+    line-height: 60px;
+    white-space: nowrap;
+}
+
+/* 200px is the size of the navigation bar */
+.main{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: calc(100% - 200px); 
+    height: 100%;
+    padding: 0 40px;
+    overflow-y: scroll;
+}
+
+.main.active{
+    width: calc(100% - 80px);
+}
+
+
+.overview-title{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.main-title{
+    font-weight: 400;
+}
+
+.dropdown{
+    outline: none;
+    border:none;
+    background-color: #f1f4f8;
+    border-radius: 5px;
+    width: 150px;
+    padding: 5px;
+}
+
+.cards{
+    display: flex;
+    gap: 20px;
+}
+
+.card{
+    padding: 20px;
+    border-radius: 20px;
+    min-width: 230px;
+    height: auto;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.card:hover{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.card-data{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card h1{
+    font-size: 30px;
+    margin-top: 10px;
+}
+
+.card-icon-lg {
+    font-size: 48px;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4A4A4A;
+}
+
+.card-stats{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.card-stats span{
+    display: flex;
+    align-items: center;
+}
+
+.card-icon{
+    margin-right: 5px;
+}
+
+.card1{
+    background-color: rgba(80,115,251,.1);
+}
+
+.card1 .card-title {
+    color: rgba(80, 115, 251, 1);
+}
+
+.card2 {
+    background-color: rgba(241,210,67,.1);
+}
+
+.card2 .card-title {
+    color: rgba(241,210,67,1);
+}
+
+.card3 {
+    background-color: rgba(112,215,165,.1);
+}
+
+.card3 .card-title {
+    color: rgba(4, 194, 102, 0.4);
+}
+
+.card4 {
+    background-color: rgba(227,106,200, .1);
+}
+
+.card4 .card-title {
+    color: rgba(246, 97, 172, 0.4);
+}
+
+.add{
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    outline: none;
+    border:none;
+    background-color: #5073fb;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.add:hover{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.add i{
+    margin-right: 10px;
+    padding: 5px;
+    background-color: #fff;
+    border-radius: 50%;
+    color:black;
+}
+
+
+.recent-interactions{
+    margin-bottom: 20px;
+}
+
+.table{
+height: 500px;
+overflow-y: scroll;
+}
+
+table{
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+}
+
+tr{
+    border-bottom: 1px solid #f1f1f1;
+}
+
+td,th{
+    padding-block:10px;
+}
+
+.edit{
+    margin-right: 10px;
+}
+
+@media screen and (min-width: 601px) {
+    .profile-menu {
+        display: none !important;
+    }
+
+    .profile {
+        pointer-events: none;
+    }
+
+    .profile_icon {
+        pointer-events: auto;
+    }
+}
+
+
+
+@media screen and (max-width: 600px) {
+
+         .header {
+             padding: 0 10px;
+         }
+    
+         /* Hide the menu icon in mobile */
+         .menu-icon {
+             display: none;
+         }
+    
+         /* Navigation styles for mobile */
+        /* Hide the regular navigation in mobile */
+        .navigation {
+            display: none;
+        }
+
+        .profile {
+            pointer-events: auto;
+            }
+
+        /* Make profile menu full screen in mobile */
+        .profile-menu {
+            position: fixed;
+            top: 60px;
+            right: 0;
+            min-width: auto;
+            border-radius: 0;
+            box-shadow: none;
+            padding: 10px 0;
+        }
+        .profile-menu a {
+            padding: 15px 20px;
+            font-size: 16px;
+        }
+        /* Hide menu icon in mobile */
+        .menu-icon {
+            display: none;
+        }
+
+    .main {
+         width: 100%;
+
+    }
+
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        width: 100%;
+    }
+
+    .card {
+        width: 100%;
+        min-width: auto;
+        margin-bottom: 0;
+    }
+
+    table{
+        font-size: 14px;
+    }
+
+    .reminder {
+        width: 50%;
+        height: 300px;
+    }
+
+    .reminder-content h2 {
+        font-size: 16px;
+    }
+}

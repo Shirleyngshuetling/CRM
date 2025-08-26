@@ -1,0 +1,243 @@
+/* Custom Calendar Wrapper */
+
+#calendar {
+    width: 100%;
+    max-width: none;
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+}
+
+
+/* Calendar Title */
+.fc-toolbar-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #3c517c;
+}
+
+/* Buttons */
+.fc .fc-button {
+    background: #5d7fd4;
+    border: none !important;
+    outline: none !important;
+    color: white;
+    font-weight: 500;
+    border-radius: 8px;
+    padding: 8px 16px;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.fc-button:hover {
+    background: #3a54a8;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.fc-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+}
+
+/* Individual button overrides */
+.fc .fc-prev-button,
+.fc .fc-next-button,
+.fc .fc-today-button{
+    border: none !important;
+    outline: none !important;
+}
+
+.fc .fc-prev-button,
+.fc .fc-next-button {
+    background-color: rgba(80, 114, 251, 0.425) !important;
+    color: white !important;
+    font-weight: 600;
+}
+
+.fc .fc-prev-button,
+.fc .fc-next-button  {
+    background-color: #3a54a8;
+}
+
+.fc .fc-today-button {
+    background: #4a6fca;
+    font-weight: 600;
+}
+
+.fc .fc-today-button:hover {
+    background: #2c4a9e;
+}
+
+/* Disabled state */
+.fc-button:disabled {
+    background: #e0e0e0 !important;
+    color: #a0a0a0 !important;
+    cursor: not-allowed;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Day Grid Cells */
+.fc-daygrid-day {
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.fc-daygrid-day:hover {
+    background-color: #eef3ff;
+}
+
+/* Events */
+.fc-event {
+    border: none;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: transform 0.2s;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.fc-event:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* Highlight Today */
+.fc-daygrid-day.fc-day-today {
+    background-color: #fff8e6 !important;
+}
+
+.fc-daygrid-day.fc-day-today .fc-daygrid-day-number {
+    color: #d4a017;
+    font-weight: bold;
+}
+
+
+.fc-daygrid-day-number {
+    padding: 6px 8px;
+    font-size: 0.9rem;
+}
+
+/* Modal tweaks (optional) */
+.reminder-modal {
+    max-width: 500px;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.3);
+    background: white;
+}
+
+.modal-close-btn {
+    background-color: #7494ec;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.modal-close-btn:hover {
+    background-color: #3c517c;
+}
+
+
+/* Overlay for modal */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(60, 81, 124, 0.3); /* Soft bluish overlay */
+    z-index: 999;
+}
+
+/* Modal base styling */
+.reminder-modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    max-width: 500px;
+    width: 90%;
+    font-family: 'Poppins', sans-serif;
+    animation: fadeIn 0.25s ease-in-out;
+}
+
+.reminder-modal h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #3c517c;
+    font-weight: 600;
+}
+
+.modal-row {
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #333;
+}
+
+.modal-row strong {
+    color: #3c517c;
+}
+
+.modal-footer {
+    margin-top: 25px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.modal-close-btn {
+    padding: 10px 20px;
+    background-color: #7494ec;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.modal-close-btn:hover {
+    background: white;
+    color: #7494ec;
+    scale: 1.02;
+    box-shadow: 0 0 0 2px #7494ec inset;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translate(-50%, -48%); }
+    to { opacity: 1; transform: translate(-50%, -50%); }
+}
+
+@media (max-width: 600px) {
+    .reminder-modal {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .fc-event-title{
+        font-size: 12px;
+    }
+}
+

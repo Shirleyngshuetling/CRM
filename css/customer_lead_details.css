@@ -1,0 +1,576 @@
+
+
+/*Table Row Styles*/
+.clickable-row {
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.clickable-row:hover {
+    background-color: #f5f5f5;
+}
+
+/* Optional - add a subtle effect when clicking */
+.clickable-row:active {
+    background-color: #e8e8e8;
+}
+
+/* Style for the view button */
+.view-button {
+    padding: 6px;
+    background: #7494ec;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.view-button:hover {
+    scale: 1.02;
+    background: white;
+    color: #7494ec;
+}
+
+/* Customer Details Modal Styles */
+#customer-details {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+}
+
+#customer-details.hidden {
+    display: none;
+}
+
+#customer-details.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.details-container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    animation: slide-up 0.3s ease forwards;
+}
+
+@keyframes slide-up {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.details-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.details-title-area {
+    flex: 1;
+}
+
+#details-name {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0;
+    color: #333;
+}
+
+#details-company {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin: 4px 0 0;
+}
+
+.details-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.details-actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 4px;
+    color: #495057;
+    transition: background-color 0.2s ease;
+}
+
+.details-actions button:hover {
+    background-color: #e9ecef;
+}
+
+#close-details {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.details-body {
+    padding: 20px 24px;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.detail-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.detail-label {
+    font-size: 0.8rem;
+    color: #6c757d;
+    margin-bottom: 4px;
+}
+
+/* Base style for detail values with wrapping */
+.detail-value {
+    word-wrap: break-word;  /* Ensures long words break */
+    overflow-wrap: break-word; /* Modern property for word breaking */
+    white-space: normal; /* Allows text to wrap */
+    max-width: 200px; /* Adjust based on your layout */
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1.4; /* Better readability for wrapped text */
+}
+
+/* Special email styling with wrapping */
+.email-value {
+    position: relative;
+    display: inline-block;
+    max-width: 200px;
+    word-break: break-all; /* Breaks long email addresses */
+    hyphens: auto; /* Adds hyphens when breaking words */
+    color: #3498db; /* Make email look clickable */
+    text-decoration: underline dotted;
+    text-underline-offset: 3px;
+    transition: all 0.2s ease;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.details-notes {
+    background-color: #f8f9fa;
+    padding: 16px;
+    border-radius: 6px;
+    margin-bottom: 24px;
+}
+
+.details-notes h4 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 1rem;
+    color: #495057;
+}
+
+.details-notes p {
+    margin: 0;
+    color: #212529;
+    line-height: 1.5;
+}
+
+/* Progress Tracker */
+#status-progress {
+    margin: 24px 0;
+}
+
+.progress-label {
+    font-size: 0.75rem;
+    color: #6c757d;
+    margin-top: 4px;
+    white-space: nowrap;
+}
+
+.progress-track {
+    padding-top: 10px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    overflow: hidden; /* Ensures line animations stay contained */
+}
+
+.progress-stage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+
+.progress-line {
+    flex: 1;
+    height: 3px;
+    background-color: #e9ecef;
+    width: 0; /* Start with 0 width */
+    transition: width 0.6s ease; /* Default transition */
+}
+
+.progress-line.completed {
+    background-color: #28a745;
+}
+
+.progress-dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #e9ecef;
+    border: 2px solid #ced4da;
+    transition: all 0.4s ease;
+    transform: scale(0.8); /* Start slightly smaller */
+}
+
+.progress-stage.completed .progress-dot {
+    background-color: #28a745;
+    border-color: #28a745;
+    transform: scale(1); /* Normal size when completed */
+}
+
+/* Pulse animation for current stage */
+.progress-stage.completed:last-child .progress-dot {
+    animation: pulse 1.5s ease infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Tabs */
+.details-tabs {
+    border-bottom: 1px solid #dee2e6;
+    display: flex;
+    margin-bottom: 16px;
+}
+
+.details-tab {
+    padding: 8px 16px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: #6c757d;
+    border-bottom: 2px solid transparent;
+}
+
+.details-tab.active {
+    color: #0d6efd;
+    border-bottom-color: #0d6efd;
+    font-weight: 500;
+}
+
+/* List Items */
+.list-container {
+    margin-bottom: 24px;
+}
+
+.list-container h4 {
+    margin: 0 0 12px;
+    font-size: 1rem;
+    color: #495057;
+}
+
+/* Enhanced Interaction List Styles */
+.list-item {
+    display: flex;
+    gap: 20px;
+    padding: 14px 0;
+    border-bottom: 1px solid #e9ecef;
+    align-items: flex-start;
+}
+
+.list-item-date {
+    min-width: 100px;
+    font-size: 0.85rem;
+    color: #6c757d;
+    padding-top: 3px;
+}
+
+.list-item-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.interaction-type {
+    font-weight: 700;
+    color: #4a6baf;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: inline-block;
+    padding: 3px 8px;
+    background-color: #f0f4ff;
+    border-radius: 4px;
+    width: fit-content;
+}
+
+.interaction-details {
+    color: #333;
+    line-height: 1.5;
+    padding: 8px 12px;
+    background-color: #f8f9fa;
+    border-left: 3px solid #d0d7e7;
+    border-radius: 0 4px 4px 0;
+    margin-left: -12px; /* Align with type */
+}
+
+.interaction-user {
+    font-size: 0.75rem;
+    color: #868e96;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.interaction-user:before {
+    content: "•";
+    color: #adb5bd;
+}
+
+/* For empty details */
+.interaction-details:empty:after {
+    content: "No details provided";
+    color: #adb5bd;
+    font-style: italic;
+}
+
+.empty-list {
+    padding: 12px;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    text-align: center;
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+/* Quick Actions */
+#quick-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.action-btn {
+    border: none;
+    background-color: #f8f9fa;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.action-btn:hover {
+    background-color: #e9ecef;
+    transform: translateY(-2px);
+}
+
+.email-btn {
+    color: #0d6efd;
+}
+
+.call-btn {
+    color: #28a745;
+}
+
+.reminder-btn {
+    color: #fd7e14;
+}
+
+.interaction-btn {
+    color: #6f42c1;
+}
+
+/* Form in modal */
+.modal-form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(222, 236, 247, 0.837);
+    padding: 25px 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    z-index: 1100;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.modal-form h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #3c517c;
+    font-size: 1.5rem;
+    font-weight: 500;
+    border-bottom: 2px solid #f1f1f1;
+    padding-bottom: 12px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: #3c517c;
+    font-size: 1rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    height: 45px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #888;
+    padding: 0 15px;
+    font-size: 16px;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.form-group textarea {
+    height: 100px;
+    padding: 10px;
+    resize: none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #716f71;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 25px;
+    width: 100%;
+}
+
+.form-actions button {
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.form-actions button[type="button"] {
+    background: #f1f1f1;
+    border: none;
+    color: #888;
+}
+
+.form-actions button[type="button"]:hover {
+    background: #e1e1e1;
+}
+
+.form-actions button[type="submit"] {
+    background: #7494ec;
+    border: none;
+    color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-actions button[type="submit"]:hover {
+    scale: 1.02;
+    background: white;
+    color: #7494ec;
+}
+
+
+.toast-box-detail {
+    height: 60px; 
+    padding: 0 30px; 
+    position: fixed; 
+    top: 5px; 
+    right: 10px; 
+    z-index: 10000; 
+    display: none; 
+    justify-content: space-between; 
+    align-items: center; 
+    gap: 20px;
+    background-color: rgb(211, 224, 243);
+    border-radius: 6px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.toast-left-detail {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    align-items: center;
+    padding-right: 30px;
+}
+
+.toast-icon-detail {
+    color: #4a6baf;
+    font-size: 1.2rem;
+}
+
+.toast-message-detail {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    color: #3c517c;
+}
+
+#close-button-detail {
+    color: #888;
+    transition: all 0.2s ease;
+}
+
+#close-button-detail:hover {
+    color: #555;
+    transform: scale(1.1);
+}
