@@ -25,7 +25,7 @@ This project was developed as part of coursework to practice **web development**
 ## ⚙️ Setup Instructions
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/crm-system.git
+   git clone https://github.com/Shirleyngshuetling/CRM.git
    ````
 
 2. Import the database:
@@ -33,6 +33,7 @@ This project was developed as part of coursework to practice **web development**
    * Open **phpMyAdmin**
    * Create a new database (e.g., `crm`)
    * Import the provided `db.sql` file
+     
 3. Configure database connection:
 
    * Edit `php/config.php` with your database credentials:
@@ -57,13 +58,17 @@ This project was developed as part of coursework to practice **web development**
 ---
 
 ## 📸 Preview
-
+### Dashboard Main page
+### Customer Management page
+### Interaction History page
+### Reminder Management page
+### Calendar page
 
 ---
 
 ## 🌐 Live Demo
 
-👉 [Click here to try it out]
+👉 [Click here to try it out](http://shirley.42web.io)
 
 ---
 
