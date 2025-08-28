@@ -26,7 +26,7 @@ This project was developed as part of coursework to practice **web development**
 1. Clone the repository:
    ```bash
    git clone https://github.com/your-username/crm-system.git
-````
+   ````
 
 2. Import the database:
 
