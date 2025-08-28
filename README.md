@@ -58,23 +58,17 @@ This project was developed as part of coursework to practice **web development**
 ---
 
 ## 📸 Preview
-**Dashboard**
 ![Dashboard Main Page](preview/Dashboard.png)
 
-**Customer Management**
 ![Customer Page](preview/CustomerManagement.png)
 ![Customer Management Page](preview/CustomerManagement1.png)
 
-**Interaction Management**
 ![interaction History Page](preview/InteractionHistory.png)
 
-**Reminder Management**
 ![Reminder Page](preview/Reminder.png)
 
-**Calendar Feature**
 ![Calendar Page](preview/Calendar.png)
 ![Calendar Detail Page](preview/Calendar1.png)
-
 
 ---
 
